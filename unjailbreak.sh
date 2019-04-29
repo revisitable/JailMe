@@ -17,6 +17,22 @@ killall Cydia
 echo "Removing generated exploit..."
 rm -f /var/mobile/test.txt
 rm -f /.bit_of_fun
+rm -f /RWTEST
+
+# rootlessJB generated files
+rm -rf /var/LIB
+rm -rf /var/ulb
+rm -rf /var/bin
+rm -rf /var/sbin
+rm -rf /var/profile
+rm -rf /var/motd
+rm -rf /var/dropbear
+rm -rf /var/containers/Bundle/tweaksupport
+rm -rf /var/containers/Bundle/iosbinpack64
+rm -rf /var/containers/Bundle/dylibs
+rm -rf /var/log/testbin.log
+rm -rf /var/log/jailbreakd-stdout.log
+rm -rf /var/log/jailbreakd-stderr.log
 
 # cleanupPotentialManualFiles
 echo "Removing potential manual files..."
@@ -54,6 +70,18 @@ rm -rf /var/lib/apt/
 rm -rf /var/lib/dpkg/
 rm -rf /var/stash/
 rm -rf /var/tweak/
+
+# remove Xiaolian shit
+echo "Removing xiaolian_helper files.."
+rm -rf /xiaolian
+rm -f  /Library/LaunchDaemons/com.openssh.sshd.plist
+rm -f  /Library/LaunchDaemons/com.saurik.Cydia.Startup.plist
+rm -f  /Library/LaunchDaemons/com.rpetrich.rocketbootstrapd.plist
+rm -f  /Library/LaunchDaemons/xiaolian.plist
+echo "Removing xiaolian jailbreaked sign files.."
+rm -rf /.cydia_no_stash
+rm -f  /.installed_xiaolian
+
 
 # removeElectraBeta
 echo "Removing Electra Beta files..."
@@ -501,6 +529,6 @@ rm -rf /bootstrap/
 rm -f /bin/sh
 rm -f /bin/rm
 
-echo "All jailbreak related files are removed! (At least all included in the iOS 11 Electra JB)"
+echo "All jailbreak related files are removed! (At least all included in the iOS 11 Electra JB and Xiaolian)"
 echo "Rebooting... (Keep praying my friend!)"
 kill 1
