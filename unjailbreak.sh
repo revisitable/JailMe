@@ -4,7 +4,8 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
-echo "Electra uninstaller by KirovAir for Electra 1.0.x"
+echo "dElectra by KirovAir for Electra 1.0.x"
+echo "Modified By Sukarodo"
 echo "This has ONLY been tested on a few devices and might kill your JB."
 echo "Assuming you have not installed any other jailbreak or modified the rootfs directly yourself, you should be on stock iOS once this is complete."
 read -p "Press enter to continue. Press Ctrl + C to exit"
@@ -12,13 +13,13 @@ read -p "Press enter to continue. Press Ctrl + C to exit"
 echo "Killing Cydia.."
 killall Cydia
 
-# exploit generated
-echo "Removing exploit generated.."
+# generated exploit
+echo "Removing generated exploit..."
 rm -f /var/mobile/test.txt
 rm -f /.bit_of_fun
 
 # cleanupPotentialManualFiles
-echo "Removing potential manual files.."
+echo "Removing potential manual files..."
 rm -f /bin/bash
 rm -f /authorize.sh
 rm -rf /Applications/jjjj.app/
@@ -55,7 +56,7 @@ rm -rf /var/stash/
 rm -rf /var/tweak/
 
 # removeElectraBeta
-echo "Removing electra beta files.."
+echo "Removing Electra Beta files..."
 rm -rf /Applications/Anemone.app/
 rm -rf /Applications/SafeMode.app/
 rm -f /usr/lib/SBInject.dylib
@@ -72,18 +73,18 @@ rm -f /usr/lib/SBInject.dylib
 rm -rf /Library/Frameworks/* # This is VERY important to keep the BETAs working
 mkdir /Library/Frameworks/ # Just to be sure
 rm -rf /System/Library/Themes/
-#rm -rf /bootstrap/ # moved to bottom
 rm -rf /Library/Themes/
 rm -f /usr/lib/SBInject.dylib
 rm -rf /Library/MobileSubstrate/*
 rm -rf /etc/dropbear
 
-# Non-beta files
+# Non-Beta files
 rm -f /usr/lib/TweakInject.dylib
 rm -rf /usr/lib/TweakInject/
 rm -rf /Library/TweakInject/
+rm -rf /Applications/Sileo.app/
 
-# For who forgot CB. (ehm, me..)
+# Circuit Breaker
 rm -rf /Applications/circuitbreaker.app/
 rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.cbtweaks.plist
 rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.cbprefs.plist
@@ -91,8 +92,8 @@ rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.CBPrefsList.plist
 rm -f /var/mobile/Library/Preferences/aaa.thecomputerwhisperer.fuku.plist
 rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.CircuitBreakerPrefs.plist
 
-#big fat bootstrap motherfucker
-echo "Removing Cydia bootstrap.. (Please pray from here onwards)"
+# Bootstrap & Cydia Removal 
+echo "Removing Cydia bootstrap... (Please pray from here onwards)"
 rm -rf /Applications/Cydia.app/
 rm -f /bin/bash
 rm -f /bin/bunzip2
@@ -125,11 +126,9 @@ rm -f /bin/mktemp
 rm -f /bin/mv
 rm -f /bin/pwd
 rm -f /bin/readlink
-#rm -f /bin/rm #move to bottom?
 rm -f /bin/rmdir
 rm -f /bin/run-parts
 rm -f /bin/sed
-#rm -f /bin/sh #move to bottom?
 rm -f /bin/sleep
 rm -f /bin/stty
 rm -f /bin/su
@@ -283,7 +282,6 @@ rm -f /usr/bin/time
 rm -f /usr/bin/toe
 rm -f /usr/bin/tput
 rm -f /usr/bin/tset
-#rm -f /usr/bin/uicache # Remove to bottom?
 rm -f /usr/bin/uiduid
 rm -f /usr/bin/uiopen
 rm -f /usr/bin/unlzma
@@ -376,19 +374,15 @@ rm -rf /usr/share/dpkg/
 rm -rf /usr/share/gnupg/
 rm -rf /usr/share/tabset/
 rm -rf /usr/share/terminfo/*
-
-# electra bootstrap
-echo "Removing electra bootstrap.."
+echo "Removing electra bootstrap..."
 rm -rf /electra/
 rm -f /.bootstrapped_electra
-
-# part of electra bootstrapping
-echo "Removing launchctl and jailbreakd process leftovers.."
+echo "Removing launchctl and jailbreakd process leftovers..."
 rm -f /bin/launchctl
 rm -f /var/tmp/jailbreakd.pid
 rm -f /var/run/jailbreakd.pid
 
-# Topanga
+# Topanga Removal
 echo "Removing possible topanga junk (just to make sure you can rejailbreak in case of emergency)"
 rm -f /bin/bzip2_64
 rm -f /bin/hostname
@@ -484,8 +478,8 @@ rm -f /usr/share/dict
 rm -rf /private/var/lib/dpkg/
 rm -rf /usr/libexec/cydia/
 
-# Resetting hosts file
-echo "Fixing up hosts file.."
+# Hosts File Reset & Revoke Blocker
+echo "Fixing up hosts file..."
 echo "##" > /etc/hosts
 echo "# Host Database" >> /etc/hosts
 echo "#" >> /etc/hosts
@@ -495,15 +489,18 @@ echo "##" >> /etc/hosts
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "255.255.255.255	broadcasthost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
+echo "Blocking Revokes..."
+echo "# Block Revokes, Thanks Suka!" >> etc/hosts
+echo "0.0.0.0 ocsp.apple.com" >> /etc/hosts
 
-#moved to bottom (from big fat bootstrap)
-echo "Removing last tools and clearing ui cache.."
+# Clear UI Cache & Bootstrap
+echo "Removing last tools and clearing ui cache..."
 uicache
 rm -f /usr/bin/uicache
 rm -rf /bootstrap/
 rm -f /bin/sh
 rm -f /bin/rm
 
-echo "All jailbreak related files are removed! (At least all included in the iOS 11 electra JB)"
+echo "All jailbreak related files are removed! (At least all included in the iOS 11 Electra JB)"
 echo "Rebooting... (Keep praying my friend!)"
 kill 1
