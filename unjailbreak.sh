@@ -544,6 +544,9 @@ echo "Blocking Revokes..."
 echo "# Block Revokes, Thanks Suka!" >> etc/hosts
 echo "0.0.0.0 ocsp.apple.com" >> /etc/hosts
 
+echo "Killing mDNSResponder..."
+killall -9 mDNSResponder
+
 # Clear UI Cache & Bootstrap
 echo "Removing last tools and clearing ui cache..."
 uicache
