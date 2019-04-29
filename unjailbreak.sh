@@ -1,17 +1,20 @@
 if [ "$EUID" -ne 0 ]; then
   echo "ERROR! You are not logged in as root user!"
-  echo "Please login as root user before executing this script."
+  echo "Please login as root user before executing JailMe."
   exit
 fi
 
-echo "dElectra by KirovAir for Electra 1.0.x"
-echo "Modified By Sukarodo"
-echo "This has ONLY been tested on a few devices and might kill your JB."
+echo "JailMe by Sukarodo for Electra and Unc0ver"
+echo "Originally delectra by KirovAir
+echo "This has not been tested (at least the additions). You've been warned."
 echo "Assuming you have not installed any other jailbreak or modified the rootfs directly yourself, you should be on stock iOS once this is complete."
 read -p "Press enter to continue. Press Ctrl + C to exit"
 
 echo "Killing Cydia.."
 killall Cydia
+
+echo "Killing Sileo..."
+killall Sileo
 
 # generated exploit
 echo "Removing generated exploit..."
@@ -38,10 +41,18 @@ rm -rf /var/log/jailbreakd-stderr.log
 echo "Removing potential manual files..."
 rm -f /bin/bash
 rm -f /authorize.sh
+rm -rf /boot/
+rm -rf /mnt/
+rm -rf /lib/
+rm -rf /Network/
 rm -rf /Applications/jjjj.app/
 rm -rf /Applications/Extender.app/
 rm -rf /Applications/GBA4iOS.app/
+rm -rf /Applications/iCleaner.app/
 rm -rf /Applications/Filza.app/
+rm -rf /Applications/Flex.app/
+rm -rf /Applications/ADManager.app/
+rm -rf /Applications/SnowBoard.app/
 rm -rf /Library/dpkg/
 rm -rf /Library/Cylinder/
 rm -rf /Library/LaunchDaemons/*
@@ -70,6 +81,7 @@ rm -rf /var/lib/apt/
 rm -rf /var/lib/dpkg/
 rm -rf /var/stash/
 rm -rf /var/tweak/
+rm -rf /var/mobile/Library/Flex3/
 
 # remove Xiaolian shit
 echo "Removing xiaolian_helper files.."
@@ -94,15 +106,20 @@ rm -f /usr/lib/libsubstitute.dylib
 rm -f /usr/lib/libsubstrate.dylib
 rm -f /usr/lib/libjailbreak.dylib
 rm -f /usr/bin/recache
+rm -f /usr/bin/icleaner
 rm -f /usr/bin/killall
 rm -rf /usr/share/terminfo/*
 rm -f /usr/libexec/sftp-server
 rm -f /usr/lib/SBInject.dylib
 rm -rf /Library/Frameworks/* # This is VERY important to keep the BETAs working
 mkdir /Library/Frameworks/ # Just to be sure
+rm -rf /Library/Activator/
+rm -rf /Library/Switches/
 rm -rf /System/Library/Themes/
 rm -rf /Library/Themes/
 rm -f /usr/lib/SBInject.dylib
+rm -rf /Library/PreferenceLoader/
+rm -rf /Library/PreferenceBundles/
 rm -rf /Library/MobileSubstrate/*
 rm -rf /etc/dropbear
 
@@ -205,6 +222,7 @@ rm -f /sbin/halt
 rm -f /sbin/nologin
 rm -f /sbin/reboot
 rm -f /sbin/update_dyld_shared_cache
+rm -f /usr/bin/ADMHelper
 rm -f /usr/bin/apt-key
 rm -f /usr/bin/arch
 rm -f /usr/bin/bashbug
@@ -363,12 +381,15 @@ rm -f /usr/lib/libpanel_g.a
 rm -f /usr/lib/libssl.1.0.0.dylib
 rm -f /usr/lib/libssl.a
 rm -f /usr/lib/libssl.dylib
+rm -f /usr/lib/librocketbootstrap.dylib
 rm -f /usr/lib/terminfo
 rm -rf /usr/lib/bash/
 rm -rf /usr/lib/engines/*
 rm -rf /usr/lib/pkgconfig/
 rm -rf /usr/lib/ssl/
 rm -f /usr/libexec/bigram
+rm -f /usr/libexec/_rocketd_reenable
+rm -f /usr/libexec/rocketd
 rm -f /usr/libexec/code
 rm -f /usr/libexec/frcode
 rm -f /usr/libexec/rmt
@@ -402,9 +423,11 @@ rm -rf /usr/share/dpkg/
 rm -rf /usr/share/gnupg/
 rm -rf /usr/share/tabset/
 rm -rf /usr/share/terminfo/*
-echo "Removing electra bootstrap..."
+echo "Removing Bootstrap..."
+rm -rf /jb/
 rm -rf /electra/
 rm -f /.bootstrapped_electra
+rm -f /.installed_unc0ver
 echo "Removing launchctl and jailbreakd process leftovers..."
 rm -f /bin/launchctl
 rm -f /var/tmp/jailbreakd.pid
@@ -529,6 +552,6 @@ rm -rf /bootstrap/
 rm -f /bin/sh
 rm -f /bin/rm
 
-echo "All jailbreak related files are removed! (At least all included in the iOS 11 Electra JB and Xiaolian)"
+echo "All jailbreak related files are removed! (Should Be)"
 echo "Rebooting... (Keep praying my friend!)"
 kill 1
