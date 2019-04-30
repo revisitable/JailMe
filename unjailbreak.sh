@@ -112,14 +112,12 @@ rm -f /usr/bin/icleaner
 rm -f /usr/bin/killall
 rm -rf /usr/share/terminfo/*
 rm -f /usr/libexec/sftp-server
-rm -f /usr/lib/SBInject.dylib
 rm -rf /Library/Frameworks/* # This is VERY important to keep the BETAs working
 mkdir /Library/Frameworks/ # Just to be sure
 rm -rf /Library/Activator/
 rm -rf /Library/Switches/
 rm -rf /System/Library/Themes/
 rm -rf /Library/Themes/
-rm -f /usr/lib/SBInject.dylib
 rm -rf /Library/PreferenceLoader/
 rm -rf /Library/PreferenceBundles/
 rm -rf /Library/MobileSubstrate/*
@@ -142,7 +140,6 @@ rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.CircuitBreakerPre
 # Bootstrap & Cydia Removal 
 echo "Removing Cydia bootstrap... (Please pray from here onwards)"
 rm -rf /Applications/Cydia.app/
-rm -f /bin/bash
 rm -f /bin/bunzip2
 rm -f /bin/bzcat
 rm -f /bin/bzip2
@@ -196,7 +193,6 @@ rm -f /bin/zgrep
 rm -f /bin/zless
 rm -f /bin/zmore
 rm -f /bin/znew
-rm -rf /Library/dpkg/
 rm -f /Library/LaunchDaemons/com.openssh.sshd.plist
 rm -f /Library/LaunchDaemons/com.saurik.Cydia.Startup.plist
 rm -rf /private/etc/alternatives/
@@ -233,7 +229,6 @@ rm -f /usr/bin/captoinfo
 rm -f /usr/bin/cfversion
 rm -f /usr/bin/clear
 rm -f /usr/bin/cmp
-rm -f /usr/bin/c_rehash
 rm -f /usr/bin/dbsql
 rm -f /usr/bin/db_archive
 rm -f /usr/bin/db_checkpoint
@@ -250,7 +245,6 @@ rm -f /usr/bin/db_stat
 rm -f /usr/bin/db_tuner
 rm -f /usr/bin/db_upgrade
 rm -f /usr/bin/db_verify
-rm -f /usr/bin/dbsql
 rm -f /usr/bin/df
 rm -f /usr/bin/diff
 rm -f /usr/bin/diff3
@@ -287,13 +281,11 @@ rm -f /usr/bin/gpg
 rm -f /usr/bin/gpg-zip
 rm -f /usr/bin/gpgsplit
 rm -f /usr/bin/gpgv
-rm -f /usr/bin/gpg-zip
 rm -f /usr/bin/gssc
 rm -f /usr/bin/hostinfo
 rm -f /usr/bin/infocmp
 rm -f /usr/bin/infotocap
 rm -f /usr/bin/iomfsetgamma
-rm -f /usr/bin/killall
 rm -f /usr/bin/ldrestart
 rm -f /usr/bin/locate
 rm -f /usr/bin/login
@@ -392,7 +384,6 @@ rm -f /usr/lib/librocketbootstrap.dylib
 rm -f /usr/lib/terminfo
 rm -rf /usr/lib/bash/
 rm -rf /usr/lib/engines/*
-rm -rf /usr/lib/pkgconfig/
 rm -rf /usr/lib/ssl/
 rm -f /usr/libexec/bigram
 rm -f /usr/libexec/_rocketd_reenable
@@ -400,13 +391,10 @@ rm -f /usr/libexec/rocketd
 rm -f /usr/libexec/code
 rm -f /usr/libexec/frcode
 rm -f /usr/libexec/rmt
-rm -f /usr/libexec/sftp-server
 rm -f /usr/libexec/ssh-keysign
 rm -f /usr/libexec/ssh-pkcs11-helper
 rm -rf /usr/libexec/apt/
-rm -rf /usr/libexec/cydia/
 rm -rf /usr/libexec/dpkg/
-rm -rf /usr/libexec/gnupg/
 rm -rf /usr/local/lib/*
 rm -f /usr/sbin/ac
 rm -f /usr/sbin/accton
@@ -423,13 +411,8 @@ rm -f /usr/sbin/vipw
 rm -f /usr/sbin/zdump
 rm -f /usr/sbin/zic
 rm -rf /usr/share/bash-completion/
-rm -rf /usr/share/bigboss/
 rm -rf /usr/share/dict/
 rm -rf /usr/share/doc/
-rm -rf /usr/share/dpkg/
-rm -rf /usr/share/gnupg/
-rm -rf /usr/share/tabset/
-rm -rf /usr/share/terminfo/*
 echo "Removing Bootstrap..."
 rm -rf /jb/
 rm -rf /electra/
@@ -534,7 +517,6 @@ rm -f /usr/sbin/start-stop-daemon
 rm -f /usr/sbin/update
 rm -f /usr/share/dict
 rm -rf /private/var/lib/dpkg/
-rm -rf /usr/libexec/cydia/
 
 # Hosts File Reset & Revoke Blocker
 echo "Fixing up hosts file..."
@@ -559,7 +541,6 @@ echo "Removing last tools and clearing ui cache..."
 uicache
 rm -f /usr/bin/uicache
 rm -rf /bootstrap/
-rm -f /bin/rmdir
 rm -f /bin/sh
 rm -f /bin/rm
 
