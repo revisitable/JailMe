@@ -50,6 +50,8 @@ rm -rf /Applications/Extender.app/
 rm -rf /Applications/GBA4iOS.app/
 rm -rf /Applications/iCleaner.app/
 rm -rf /Applications/Filza.app/
+rm -rf /Applications/iFile.app/
+rm -rf /Applications/NewTerm.app/
 rm -rf /Applications/Flex.app/
 rm -rf /Applications/ADManager.app/
 rm -rf /Applications/SnowBoard.app/
