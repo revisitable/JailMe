@@ -6,6 +6,7 @@ fi
 
 echo "JailMe by Sukarodo for Electra and Unc0ver"
 echo "Originally delectra by KirovAir
+echo "Chimera Support eta s0n"
 echo "This has not been tested (at least the additions). You've been warned."
 echo "Assuming you have not installed any other jailbreak or modified the rootfs directly yourself, you should be on stock iOS once this is complete."
 read -p "Press enter to continue. Press Ctrl + C to exit"
