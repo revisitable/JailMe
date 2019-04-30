@@ -226,6 +226,7 @@ rm -f /usr/bin/ADMHelper
 rm -f /usr/bin/apt-key
 rm -f /usr/bin/arch
 rm -f /usr/bin/bashbug
+rm -f /usr/bin/c_rehash
 rm -f /usr/bin/captoinfo
 rm -f /usr/bin/cfversion
 rm -f /usr/bin/clear
@@ -247,6 +248,7 @@ rm -f /usr/bin/db_stat
 rm -f /usr/bin/db_tuner
 rm -f /usr/bin/db_upgrade
 rm -f /usr/bin/db_verify
+rm -f /usr/bin/dbsql
 rm -f /usr/bin/df
 rm -f /usr/bin/diff
 rm -f /usr/bin/diff3
@@ -283,6 +285,7 @@ rm -f /usr/bin/gpg
 rm -f /usr/bin/gpg-zip
 rm -f /usr/bin/gpgsplit
 rm -f /usr/bin/gpgv
+rm -f /usr/bin/gpg-zip
 rm -f /usr/bin/gssc
 rm -f /usr/bin/hostinfo
 rm -f /usr/bin/infocmp
@@ -303,7 +306,8 @@ rm -f /usr/bin/lzma
 rm -f /usr/bin/lzmadec
 rm -f /usr/bin/lzmainfo
 rm -f /usr/bin/lzmore
-rm -f /usr/bin/ncurses5-config
+rm -f /usr/bin/ncurses6-config
+rm -f /usr/bin/ncursesw6-config
 rm -f /usr/bin/openssl
 rm -f /usr/bin/pagesize
 rm -f /usr/bin/passwd
@@ -315,6 +319,7 @@ rm -f /usr/bin/scp
 rm -f /usr/bin/script
 rm -f /usr/bin/sdiff
 rm -f /usr/bin/sftp
+rm -f /usr/bin/sort
 rm -f /usr/bin/ssh
 rm -f /usr/bin/ssh-add
 rm -f /usr/bin/ssh-agent
@@ -552,6 +557,7 @@ echo "Removing last tools and clearing ui cache..."
 uicache
 rm -f /usr/bin/uicache
 rm -rf /bootstrap/
+rm -f /bin/rmdir
 rm -f /bin/sh
 rm -f /bin/rm
 
