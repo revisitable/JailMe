@@ -1,9 +1,9 @@
 # JailMe
-An uninstaller script for:
-Coolstars' [Electra](https://github.com/coolstar/electra) iOS 11.0 - 11.4 jailbreak.
-Pwn20wnds' [unc0ver](https://github.com/pwn20wndstuff/unc0ver) iOS 11.0 - 12.2 jailbreak. 
-to.panga mess-up
-and the Xiaolian Fakebreak. 
+An uninstaller script for: <br>
+* Coolstars' [Electra](https://github.com/coolstar/electra) iOS 11.0 - 11.4 jailbreak
+* Pwn20wnd's [unc0ver](https://github.com/pwn20wndstuff/unc0ver) iOS 11.0 - 12.4 jailbreak
+* to.panga mess-up
+* and the Xiaolian Fakebreak. <br> 
 Please read everything in this readme before you do anything!
 
 [Dowload link](https://github.com/sukarodo/JailMe/archive/master.zip)
