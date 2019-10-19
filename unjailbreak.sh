@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "JailMe by Sukarodo"
-echo "Originally delectra by KirovAir
+echo "Originally delectra by KirovAir"
 echo "This has not been tested (at least the additions). You've been warned."
 echo "Assuming you have not installed any other jailbreak or modified the rootfs directly yourself, you should be on stock iOS once this is complete."
 echo "Ready? (Y/N)"
