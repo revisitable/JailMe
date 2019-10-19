@@ -14,11 +14,21 @@ read runner
 if [[ $runner == Y || $runner == Yes || $runner == y || $runner == yes ]]
 then
 
-echo "Killing Cydia.."
+echo "Killing Cydia..."
 killall Cydia
 
 echo "Killing Sileo..."
 killall Sileo
+
+# removePackageManagers
+echo "Removing package manager(s)..."
+rm -rf /Applications/Cydia.app/
+rm -rf /Applications/Sileo.app/
+if [[ ! -e /Applications/Cydia.app && /Applications/Sileo.app ]]
+echo "Package Manager(s) Succesfully Removed"
+else
+echo "Error Line : 23. . . Package Manager(s) wasn't removed."
+exit
 
 # generated exploit
 echo "Removing generated exploit..."
@@ -27,6 +37,7 @@ rm -f /.bit_of_fun
 rm -f /RWTEST
 
 # rootlessJB generated files
+echo "Removing rootlessJB files..."
 rm -rf /var/LIB
 rm -rf /var/ulb
 rm -rf /var/bin
@@ -42,7 +53,7 @@ rm -rf /var/log/jailbreakd-stdout.log
 rm -rf /var/log/jailbreakd-stderr.log
 
 # cleanupPotentialManualFiles
-echo "Removing potential manual files..."
+echo "Removing potential manual files... (including Tweaks)"
 rm -f /bin/bash
 rm -f /authorize.sh
 rm -rf /boot/
@@ -89,8 +100,8 @@ rm -rf /var/stash/
 rm -rf /var/tweak/
 rm -rf /var/mobile/Library/Flex3/
 
-# remove Xiaolian shit
-echo "Removing xiaolian_helper files.."
+# remove Xiaolian stuff
+echo "Removing xiaolian_helper files..."
 rm -rf /xiaolian
 rm -f  /Library/LaunchDaemons/com.openssh.sshd.plist
 rm -f  /Library/LaunchDaemons/com.saurik.Cydia.Startup.plist
@@ -99,7 +110,6 @@ rm -f  /Library/LaunchDaemons/xiaolian.plist
 echo "Removing xiaolian jailbreaked sign files.."
 rm -rf /.cydia_no_stash
 rm -f  /.installed_xiaolian
-
 
 # removeElectraBeta
 echo "Removing Electra Beta files..."
@@ -131,7 +141,6 @@ rm -rf /etc/dropbear
 rm -f /usr/lib/TweakInject.dylib
 rm -rf /usr/lib/TweakInject/
 rm -rf /Library/TweakInject/
-rm -rf /Applications/Sileo.app/
 
 # Circuit Breaker
 rm -rf /Applications/circuitbreaker.app/
@@ -141,9 +150,8 @@ rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.CBPrefsList.plist
 rm -f /var/mobile/Library/Preferences/aaa.thecomputerwhisperer.fuku.plist
 rm -f /var/mobile/Library/Preferences/com.thecomputerwhisperer.CircuitBreakerPrefs.plist
 
-# Bootstrap & Cydia Removal 
-echo "Removing Cydia bootstrap... (Please pray from here onwards)"
-rm -rf /Applications/Cydia.app/
+# Bootstrap Removal 
+echo "Removing Bootstrap..."
 rm -f /bin/bunzip2
 rm -f /bin/bzcat
 rm -f /bin/bzip2
@@ -417,19 +425,18 @@ rm -f /usr/sbin/zic
 rm -rf /usr/share/bash-completion/
 rm -rf /usr/share/dict/
 rm -rf /usr/share/doc/
-echo "Removing Bootstrap..."
+# Files that are in the check are below:
 rm -rf /jb/
 rm -rf /electra/
 rm -f /.bootstrapped_electra
 rm -f /.installed_unc0ver
 
-echo "Checking for left over files. . ."
-# Checking if the files were removed...
+echo "Checking for leftover Bootstrap files. . ."
 if [[ ! -e /.installed_unc0ver  && /.cydia_no_stash  && /.bootstrapped_electra && /electra && /jb ]]
 then
 echo "Bootstrap was removed succesfully..."
 else
-echo "Error : Line 420 . . . Files were detected and were not removed."
+echo "Error : Line 429 . . Files were detected and were not removed."
 exit
 fi
 
@@ -439,7 +446,7 @@ rm -f /var/tmp/jailbreakd.pid
 rm -f /var/run/jailbreakd.pid
 
 # Topanga Removal
-echo "Removing possible topanga junk (just to make sure you can rejailbreak in case of emergency)"
+echo "Removing possible topanga junk..."
 rm -f /bin/bzip2_64
 rm -f /bin/hostname
 rm -f /Library/LaunchDaemons/0.reload.plist
@@ -533,6 +540,10 @@ rm -f /usr/sbin/update
 rm -f /usr/share/dict
 rm -rf /private/var/lib/dpkg/
 
+# Remove these System files, just in case (may remove)
+rm -rf /System/Library/Internet_Plug-ins
+rm -rf /System/Library/KeyboardDictionaries
+
 # Hosts File Reset & Revoke Blocker
 echo "Fixing up hosts file..."
 echo "##" > /etc/hosts
@@ -560,7 +571,7 @@ rm -f /bin/sh
 rm -f /bin/rm
 
 echo "All jailbreak related files are removed! (Should Be)"
-echo "Rebooting... (Keep praying my friend!)"
+echo "Rebooting... (Keep praying man!)"
 kill 1
 
 else
