@@ -4,12 +4,15 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
-echo "JailMe by Sukarodo for Electra and Unc0ver"
+echo "JailMe by Sukarodo"
 echo "Originally delectra by KirovAir
-echo "Chimera Support eta s0n"
 echo "This has not been tested (at least the additions). You've been warned."
 echo "Assuming you have not installed any other jailbreak or modified the rootfs directly yourself, you should be on stock iOS once this is complete."
-read -p "Press enter to continue. Press Ctrl + C to exit"
+echo "Ready? (Y/N)"
+read runner
+
+if [[ $runner == Y || $runner == Yes || $runner == y || $runner == yes ]]
+then
 
 echo "Killing Cydia.."
 killall Cydia
@@ -419,6 +422,17 @@ rm -rf /jb/
 rm -rf /electra/
 rm -f /.bootstrapped_electra
 rm -f /.installed_unc0ver
+
+echo "Checking for left over files. . ."
+# Checking if the files were removed...
+if [[ ! -e /.installed_unc0ver  && /.cydia_no_stash  && /.bootstrapped_electra && /electra && /jb ]]
+then
+echo "Bootstrap was removed succesfully..."
+else
+echo "Error : Line 420 . . . Files were detected and were not removed."
+exit
+fi
+
 echo "Removing launchctl and jailbreakd process leftovers..."
 rm -f /bin/launchctl
 rm -f /var/tmp/jailbreakd.pid
@@ -548,3 +562,7 @@ rm -f /bin/rm
 echo "All jailbreak related files are removed! (Should Be)"
 echo "Rebooting... (Keep praying my friend!)"
 kill 1
+
+else
+exit
+fi
